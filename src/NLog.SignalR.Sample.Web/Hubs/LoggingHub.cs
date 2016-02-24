@@ -2,6 +2,7 @@
 
 namespace NLog.SignalR.Sample.Web.Hubs
 {
+    [Authorize]
     public class LoggingHub : Hub<ILoggingHub>
     {
         public void Log(LogEvent logEvent)

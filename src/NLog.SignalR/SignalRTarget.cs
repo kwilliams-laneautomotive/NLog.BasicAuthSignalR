@@ -11,6 +11,7 @@ namespace NLog.SignalR
     {
         public static SignalRTarget Instance = new SignalRTarget();
         public Action<String, LogEventInfo> LogEventHandler;
+        private readonly Lazy<HubProxy> _lazyHubProxy;
 
         [RequiredParameter]
         public string Uri { get; set; }
@@ -20,14 +21,18 @@ namespace NLog.SignalR
 
         [DefaultValue("Log")]
         public string MethodName { get; set; }
+        
+        public string Username { get; set; }
+        
+        public string Password { get; set; }
 
-        public readonly HubProxy Proxy;
-
+        public HubProxy Proxy => _lazyHubProxy.Value;
+        
         public SignalRTarget()
         {
             HubName = "LoggingHub";
             MethodName = "Log";
-            Proxy = new HubProxy(this);
+            _lazyHubProxy = new Lazy<HubProxy>(() => new HubProxy(this, Username, Password));
         }
 
         protected override void Write(LogEventInfo logEvent)

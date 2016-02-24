@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using Microsoft.AspNet.SignalR.Client;
 
 namespace NLog.SignalR
@@ -6,12 +7,16 @@ namespace NLog.SignalR
     public class HubProxy
     {
         private readonly SignalRTarget _target;
+        private readonly string _username;
+        private readonly string _password;
         public HubConnection Connection;
         private IHubProxy _proxy;
 
-        public HubProxy(SignalRTarget target)
+        public HubProxy(SignalRTarget target, string username, string password)
         {
             _target = target;
+            _username = username;
+            _password = password;
         }
 
         public void Log(LogEvent logEvent)
@@ -40,6 +45,7 @@ namespace NLog.SignalR
             try
             {
                 Connection = new HubConnection(_target.Uri);
+                Connection.Credentials = GetBasicAuthenticationCredentials();
                 _proxy = Connection.CreateHubProxy(_target.HubName);
                 Connection.Start().Wait();
 
@@ -61,6 +67,19 @@ namespace NLog.SignalR
             {
                 _proxy = null;
             }
+        }
+
+        private NetworkCredential GetBasicAuthenticationCredentials()
+        {
+            if (_username != null && _password != null)
+            {
+                return new NetworkCredential
+                {
+                    UserName = _username,
+                    Password = _password,
+                };
+            }
+            return null;
         }
 
     }
