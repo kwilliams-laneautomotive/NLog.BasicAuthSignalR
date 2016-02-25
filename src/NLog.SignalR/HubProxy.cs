@@ -45,7 +45,20 @@ namespace NLog.SignalR
             try
             {
                 Connection = new HubConnection(_target.Uri);
-                Connection.Credentials = GetBasicAuthenticationCredentials();
+                var credentials = GetBasicAuthenticationCredentials();
+                if (credentials != null)
+                {
+                    //Connection.CookieContainer = new CookieContainer();
+                    var credentialString = credentials.UserName + ":" + credentials.Password;
+                    var credentialBytes = System.Text.Encoding.ASCII.GetBytes(credentialString);
+                    var credentialBase64String = Convert.ToBase64String(credentialBytes);
+                    //var authorizeCookie = new Cookie("Authorize", credentialBase64String);
+                    //var urlUri = new Uri(Connection.Url);
+                    //var urlDomain = Connection.Url.Substring(0, Connection.Url.Length - urlUri.LocalPath.Length);
+                    //var domainUri = new Uri(urlDomain);
+                    Connection.Headers.Add("Authorization", credentialBase64String);
+                    //Connection.CookieContainer.Add(domainUri, authorizeCookie);
+                }
                 _proxy = Connection.CreateHubProxy(_target.HubName);
                 Connection.Start().Wait();
 
