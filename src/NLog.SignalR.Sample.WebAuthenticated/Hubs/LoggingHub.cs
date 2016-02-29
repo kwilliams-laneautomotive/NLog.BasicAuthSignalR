@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR;
-using NLog.SignalR.Nlog.SignalR;
+using NLog.SignalR;
 
 namespace NLog.SignalR.Sample.Web.Hubs
 {

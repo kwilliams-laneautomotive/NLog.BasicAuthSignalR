@@ -3,6 +3,7 @@ using System.Web.Mvc;
 
 namespace NLog.SignalR.Sample.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();

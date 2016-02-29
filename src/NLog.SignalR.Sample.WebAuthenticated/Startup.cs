@@ -1,4 +1,6 @@
 ﻿using Microsoft.Owin;
+using NLog.Config;
+using NLog.SignalR;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(NLog.SignalR.Sample.WebAuthenticated.Startup))]
@@ -10,6 +12,10 @@ namespace NLog.SignalR.Sample.WebAuthenticated
         {
             ConfigureAuth(app);
             app.MapSignalR();
+
+            ConfigurationItemFactory.Default.Targets
+          .RegisterDefinition("SignalR", typeof(SignalRTarget));
+
         }
     }
 }
