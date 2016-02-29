@@ -590,9 +590,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NLog.SignalR\NLog.SignalR.csproj">
+    <ProjectReference Include="..\NLog.SignalR\NLog.BasicAuthSignalR.csproj">
       <Project>{1414fdce-96ba-4706-bcef-eeec410df025}</Project>
-      <Name>NLog.SignalR</Name>
+      <Name>NLog.BasicAuthSignalR</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

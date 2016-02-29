@@ -6,12 +6,12 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://raw.githubusercontent.com/toddmeinershagen/NLog.SignalR/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/toddmeinershagen/NLog.SignalR</projectUrl>
+    <licenseUrl>https://github.com/kwilliams-laneautomotive/NLog.BasicAuthSignalR/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kwilliams-laneautomotive/NLog.BasicAuthSignalR/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Custom NLog target for send logs to a SignalR hub.  This release is based on SignalR 2.0.</releaseNotes>
-    <copyright>Copyright 2012</copyright>
+    <releaseNotes>Custom NLog target for send logs to a SignalR hub using basic authentication to protect the hub submission.  This release is based on SignalR 2.0.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
     <tags>nlog target signalr</tags>
   </metadata>
 </package>
