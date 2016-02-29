@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>Various</authors>
     <owners>Various</owners>
-    <licenseUrl>https://github.com/kwilliams-laneautomotive/NLog.BasicAuthSignalR/master/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/kwilliams-laneautomotive/NLog.BasicAuthSignalR/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/kwilliams-laneautomotive/NLog.BasicAuthSignalR/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
