@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NLog.BasicAuthSignalR")]
-[assembly: AssemblyDescription("Custom NLog target for sending log events to a SignalR hub.")]
+[assembly: AssemblyDescription("Custom NLog target for sending log events to a SignalR hub using basic authentication to submit to the hub.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NLog.BasicAuthSignalR")]
